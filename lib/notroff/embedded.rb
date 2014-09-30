@@ -102,6 +102,7 @@ class EmbeddedRubyProcessor
       result[:included] = inc_all
       result
     end
+    Logger.warn("Zero lines included!!") if lines.empty?
     lines
   end
 
@@ -134,10 +135,15 @@ class EmbeddedRubyProcessor
         state = :after_first
         break if para =~ re2
       elsif state == :after_first
-        break if para =~ re2
+        if para =~ re2
+          state = :after_second
+          break
+        end
         para[:included] = true
       end
     end
+    raise "Couldnt find first pattern" if state == :before_first
+    raise "Couldnt find second pattern" unless state == :after_second
     paras
   end
 

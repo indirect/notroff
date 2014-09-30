@@ -10,4 +10,9 @@ module Logger
     return unless @verbose
     puts args.join(' ')
   end
+
+  def self.warn(*args)
+    STDERR.puts "WARNING: #{args.join(' ')} ******"
+    log(args)
+  end
 end
