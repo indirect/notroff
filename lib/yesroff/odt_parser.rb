@@ -103,8 +103,21 @@ class OdtParser
     styles.add_style ParagraphStyle.new('NL', nil, :list, true)
     styles.add_style ParagraphStyle.new('NX', nil, :list, true)
 
+    styles.add_style ParagraphStyle.new('BLPara', nil, :bullet, true)
     styles.add_style ParagraphStyle.new('BL Para', nil, :bullet, true)
     styles.add_style ParagraphStyle.new('Quotation_20_Attribution', nil, :attribution, true)
+
+    styles.add_style ParagraphStyle.new('C2', nil, :code, false)
+    styles.add_style ParagraphStyle.new('C2.1', nil, :code, false)
+    styles.add_style ParagraphStyle.new('CX', nil, :code, true)
+
+    styles.add_style ParagraphStyle.new('FC', nil, :fc, false)
+
+    styles.add_style ParagraphStyle.new('LCX', nil, :code, true)
+    styles.add_style ParagraphStyle.new('TBX', nil, :code, true)
+
+    styles.add_style ParagraphStyle.new('TC', nil, :code, false)
+    styles.add_style ParagraphStyle.new('TS', nil, :code, false)
 
     additional_paragraph_styles(styles)
     styles
