@@ -21,6 +21,10 @@ def additional_text_styles(styles)
   log "noop additional text styles function"
 end
 
+def additional_paragraph_styles(styles)
+  log "noop additional paragraph styles function"
+end
+
 class OdtParser
   def initialize(odt_path)
     if File.exist?("yesroff.rc")
