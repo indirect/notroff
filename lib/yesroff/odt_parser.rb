@@ -180,12 +180,11 @@ class OdtParser
   def find_or_create_para_style(name)
     return lookup_para_style(name)
     s = @para_styles[name]
-    unless s
-      STDERR.puts "Warning: no paragraph style named #{name}"
-      s = ParagraphStyle.new(name, nil, :body, false)
-      @para_styles[s.name] = s
-      s
-    end
+  rescue
+    STDERR.puts "Warning: no paragraph style named #{name}"
+    s = ParagraphStyle.new(name, nil, :body, false)
+    @para_styles[s.name] = s
+    s
   end
 
   def lookup_text_style(name)
